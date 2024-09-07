@@ -17,6 +17,7 @@ if (existsSync('./dist')) {
   const { serveStatic } = await import('hono/bun')
 
   // Import the SSR handler from the server entry file
+  // @ts-expect-error
   const { handler: ssrHandler } = await import('../dist/server/entry.mjs')
 
   // Handle the static files and the SSR
