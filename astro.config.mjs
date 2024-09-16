@@ -8,5 +8,12 @@ export default defineConfig({
 	srcDir: "client/src", 
 	publicDir: "client/public",
 	adapter: honoAstro(),
-	output: "server",
+	output: "server", // Or Hybrid
+
+	// Proxy the http requests to the server in development
+	devServer: {
+		proxy: {
+			"/api": "http://localhost:3000"
+		}
+	}
 })
